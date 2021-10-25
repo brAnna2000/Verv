@@ -51,11 +51,89 @@ i{
     top: 60px;
     left: 150px;
 }
-.upperLine, .bottomLine{
+.upperLine,.bottomLine{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover
+}
+.free{
+    position: absolute;
+    top: 86px;
+    right: 20px;
+}
+.pro{
+    position: absolute;
+    height: 27px;
+    width: 51px;
+    top: 139px;
+    right: 20px;
+}
+.green{
+    position: absolute;
+    top: 164px;
+    right: 33px;
+}
+.red{
+    position: absolute;
+    top: 112px;
+    right: 33px;
+}
+.free,.pro,.green,.red{
+    opacity: 0;
+    transition: 1s; 
+    animation: show 1s 1; 
+    animation-fill-mode: forwards; 
+    animation-delay: 1s; 
+}
+.pro{
+    opacity: 0;
+    transition: 1s; 
+    animation: show 1s 1, pulsing 1s infinite; 
+    animation-fill-mode: forwards; 
+    animation-delay: 1s; 
+}
+@keyframes show{
+0%{
+    opacity:0;
+}
+100% {
+    opacity:1;
+}
+}
+.elem{
     position: absolute;
     z-index: 0;
     top: 84px;
     left: 0px;
+    overflow: hidden;
+    width: 0;
+    height: 200px;
+    animation: anim 1s linear forwards;
+}
+@keyframes anim{
+50%{
+    opacity: 0;
+    width: 0;
+}
+100%{
+    opacity: 1;
+    width: 320px;
+}
+}
+@keyframes pulsing {
+0% {
+    opacity: 1;
+    transform: scale(1.0, 1.0);
+}
+50% {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+}
+100% {
+    opacity: 1;
+    transform: scale(1.0, 1.0);
+}
 }
 .healthGroups{
     position: absolute;
@@ -69,13 +147,18 @@ i{
     color: white;
     padding-bottom: 10px;
 }
-.main{
-    visibility: visible;
+.wrapper{
+    width: 320px;
     position: absolute;
-    text-align: left;
     top: 200px;
-    left: 20px;
-    width: 1300px;
+    margin: 0 auto;
+}
+.slider-container{
+    overflow: hidden;
+} 
+.slider-track{
+    display: flex;
+    transition: .2s;
 }
 .slider{
     display: inline-block;
@@ -84,20 +167,13 @@ i{
     border-radius: 10px;
     height: 110px;
     width: 280px;
-    /* position: absolute;
-    top: 200px;
-    left: 20px; */
     text-align: left;
     padding: 15px 15px 12px 15px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
-
-/* .slider:first-of-type{
-    left: -270px;
+.slider:first-child{
+    margin-left: 20px;
 }
-.slider:nth-of-type(3n){
-    left: 310px;
-} */
 .slider span{
     display: inline-block;
     width: 49%;
@@ -214,6 +290,10 @@ body>p{
     height: 419px;
     width: 381px;
 }    
+i{
+    top: 29px;
+    left: 20px;
+}
 .close{
     top: 48px;
     right: 14px;
@@ -238,7 +318,7 @@ body>p{
     left: 154px;
 }
 .upperLine, .bottomLine{
-    top: 141px;
+    top: 0px;
     left: 0px;
 }
 .upperLine{
@@ -246,6 +326,38 @@ body>p{
 }
 .bottomLine{
     content: url(../img/bottomLine2.png);
+}
+.free{
+    top: 164px;
+    right: 30px;
+}
+.pro{
+    top: 252px;
+    right: 30px;
+}
+.green{
+    top: 276px;
+    right: 43px;
+}
+.red{
+    top: 189px;
+    right: 43px;
+}
+.elem{
+    top: 136px;
+    left: 0px;
+    width: 0;
+    animation: anim 1s linear forwards;
+}
+@keyframes anim{
+50%{
+    opacity: 0;
+    width: 0;
+}
+100%{
+    opacity: 1;
+    width: 391px;
+}
 }
 .healthGroups{
     top: 157px;
@@ -255,14 +367,14 @@ body>p{
     font-size: 13px;
     padding-bottom: 30px;
 }
+.wrapper{
+    width: 381px;
+    top: 346px;
+}
 .slider{
     height: 145px;
     width: 335px;
-    top: 346px;
     padding: 20px;
-}
-.slider:first-of-type{
-    left: 25px;
 }
 .stars{
     margin-top: 10px;
@@ -331,115 +443,155 @@ body>p{
 }
 }
 @media screen and (device-width: 414px){
-    .back{
-        height: 456px;
-        width: 414px;
-    }  
-    .back p{
-        padding-top: 80px;
-        font-size: 34px;
-    }  
-    .mask, .lines{
-        top: 155px;
-    }
-    .mask{
-        content: url(../img/mask3.png);
-    }
-    .lines{
-        content: url(../img/lines3.png);
-    }
-    .woman{
-        content: url(../img/woman3.png);
-        top: 113px;
-        left: 188px;
-    }
-    .upperLine, .bottomLine{
-        top: 156px;
-    }
-    .upperLine{
-        content: url(../img/upperLine3.png);
-    }
-    .bottomLine{
-        content: url(../img/bottomLine3.png);
-    }
-    .healthGroups{
-        top: 174px;
-        left: 33px;
-    }
-    .healthGroups span{
-        font-size: 13px;
-        padding-bottom: 30px;
-    }
-    .slider{
-        height: 145px;
-        width: 374px;
-        top: 393px;
-        padding: 20px 20px 24px 20px;
-    }
-    .slider:first-of-type{
-        left: 25px;
-    }
-    .slider p{
-        padding-top: 5px;
-        font-size: 15px;
-    }
-    .container{
-        margin-top: 133px;
-        padding: 0 20px;
-    }
-    .card{
-        width: 118px;
-        height: 151px;
-    }
-    .card:first-of-type p:first-of-type, .card:nth-of-type(2n) p:first-of-type, .card:nth-of-type(3n) p:first-of-type{
-        font-size: 24px;
-        margin-top: 6px;
-    }
-    .card:first-of-type p:nth-of-type(2n), .card:nth-of-type(2n) p:nth-of-type(2n), .card:nth-of-type(3n) p:nth-of-type(2n){
-        font-size: 15px;
-    }
-    .card:first-of-type p:nth-of-type(3n), .card:nth-of-type(2n) p:nth-of-type(3n), .card:nth-of-type(3n) p:nth-of-type(3n){
-        margin-top: 12px;
-    }
-    .card:first-of-type p:nth-of-type(4n), .card:nth-of-type(2n) p:nth-of-type(4n), .card:nth-of-type(3n) p:nth-of-type(4n){
-        font-size: 13px;
-    }
-    .card:first-of-type p:last-of-type, .card:nth-of-type(2n) p:last-of-type, .card:nth-of-type(3n) p:last-of-type{
-        font-size: 13px;
-        margin-top: 6px;
-    }
-    .card p, .card2 p, .card3 p{
-        font-size: 13px;
-    }
-    .save2{
-        top: -20px;
-        width: 118px;
-        height: 25px;
-        font-size: 13px;
-        line-height: 25px;
-    }
-    .save3{
-        top: -20px;
-        width: 118px;
-        height: 25px;
-        font-size: 13px;
-        line-height: 25px;
-    }
-    .sale{
-        width: 118px;
-        height: 16px;
-        font-size: 9px;
-        line-height: 16px;
-    }
-    button{
-        width: 374px;
-        height: 50px;
-        font-size: 22px;
-        margin-top: 29px;
-    }
-    body>p{
-        font-size: 11px;
-        margin-top: 20px;
-    }
-    }
-/*# sourceMappingURL=style.css.map */
+.back{
+    height: 456px;
+    width: 414px;
+}  
+i{
+    top: 29px;
+    left: 20px;
+}
+.back p{
+    padding-top: 80px;
+    font-size: 34px;
+}  
+.mask, .lines{
+    top: 155px;
+    left: 0;
+}
+.mask{
+    content: url(../img/mask3.png);
+}
+.lines{
+    content: url(../img/lines3.png);
+}
+.woman{
+    content: url(../img/woman3.png);
+    top: 113px;
+    left: 188px;
+}
+.upperLine, .bottomLine{
+    top: 0;
+    left: 0;
+}
+.upperLine{
+    content: url(../img/upperLine3.png);
+}
+.bottomLine{
+    content: url(../img/bottomLine3.png);
+}
+.free{
+    top: 188px;
+    right: 14px;
+}
+.pro{
+    top: 284px;
+    right: 14px;
+}
+.green{
+    top: 312px;
+    right: 27px;
+}
+.red{
+    top: 215px;
+    right: 27px;
+}
+.elem{
+    top: 156px;
+    left: 0px;
+    width: 0;
+    animation: anim 1s linear forwards;
+}
+@keyframes anim{
+50%{
+    opacity: 0;
+    width: 0;
+}
+100%{
+    opacity: 1;
+    width: 419px;
+}
+}
+.healthGroups{
+    top: 174px;
+    left: 33px;
+}
+.healthGroups span{
+    font-size: 13px;
+    padding-bottom: 30px;
+}
+.wrapper{
+    width: 414px;
+    top: 393px;
+}
+.slider{
+    height: 145px;
+    width: 374px;
+    padding: 20px 20px 24px 20px;
+}
+.stars{
+    margin-top: 10px;
+}
+.slider p{
+    padding-top: 5px;
+    font-size: 15px;
+}
+.container{
+    margin-top: 133px;
+    padding: 0 20px;
+}
+.card{
+    width: 118px;
+    height: 151px;
+}
+.card:first-of-type p:first-of-type, .card:nth-of-type(2n) p:first-of-type, .card:nth-of-type(3n) p:first-of-type{
+    font-size: 24px;
+    margin-top: 6px;
+}
+.card:first-of-type p:nth-of-type(2n), .card:nth-of-type(2n) p:nth-of-type(2n), .card:nth-of-type(3n) p:nth-of-type(2n){
+    font-size: 15px;
+}
+.card:first-of-type p:nth-of-type(3n), .card:nth-of-type(2n) p:nth-of-type(3n), .card:nth-of-type(3n) p:nth-of-type(3n){
+    margin-top: 12px;
+}
+.card:first-of-type p:nth-of-type(4n), .card:nth-of-type(2n) p:nth-of-type(4n), .card:nth-of-type(3n) p:nth-of-type(4n){
+    font-size: 13px;
+}
+.card:first-of-type p:last-of-type, .card:nth-of-type(2n) p:last-of-type, .card:nth-of-type(3n) p:last-of-type{
+    font-size: 13px;
+    margin-top: 6px;
+}
+.card p, .card2 p, .card3 p{
+    font-size: 13px;
+}
+.save2{
+    top: -20px;
+    width: 118px;
+    height: 25px;
+    font-size: 13px;
+    line-height: 25px;
+}
+.save3{
+    top: -20px;
+    width: 118px;
+    height: 25px;
+    font-size: 13px;
+    line-height: 25px;
+}
+.sale{
+    width: 118px;
+    height: 16px;
+    font-size: 9px;
+    line-height: 16px;
+}
+button{
+    width: 374px;
+    height: 50px;
+    font-size: 22px;
+    margin-top: 29px;
+}
+body>p{
+    font-size: 11px;
+    margin-top: 20px;
+}
+}
